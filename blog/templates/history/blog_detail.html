@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>{{product.title}}</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+ <section class="blog-hero-section set-bg" data-setbg="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="bh-text">
+                        <h4>{{product.title}}</h4>
+                        <ul>
+                            <li>by <span>{{product.author}}</span></li>
+                            <li>{{product.created_on}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Hero Section End -->
+
+    <!-- Blog Details Section Begin -->
+    <section class="blog-details-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 m-auto p-0">
+                    <div class="blog-details-content">
+                        <div class="bc-top">
+                            <p>{{product.content | safe}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block jss %}
+{% endblock %}

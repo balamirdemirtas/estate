@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>{% trans 'İletişim' %}</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+<section class="breadcrumb-section spad set-bg" data-setbg="{% static 'img/breadcrumb-contact-bg.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text" style="background-color: transparent;">
+                        <h4>{% trans 'İletişim' %}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Contact Form Section Begin -->
+    <section class="contact-form-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cf-content">
+                        <div class="cc-title">
+                            <h4>{% trans 'İletişim Formu' %}</h4>
+                        </div>
+                        <form action="#" class="cc-form">
+                            <div class="group-input">
+                                <input type="text" placeholder="Name">
+                                <input type="text" placeholder="Email">
+                                <input type="text" placeholder="Website">
+                            </div>
+                            <textarea placeholder="Comment"></textarea>
+                            <button type="submit" class="site-btn">{% trans 'Gönder' %}</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block jss %}
+{% endblock %}

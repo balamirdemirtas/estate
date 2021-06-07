@@ -1,0 +1,62 @@
+{% load static i18n %}
+<footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="fs-about">
+                        <div class="fs-logo">
+                            <a href="#">
+                                <img src="{% static 'footer-logo.png' %}" alt="">
+                            </a>
+                        </div>
+                        <p>{% trans 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt' %}</p>
+                        <div class="fs-social">
+                            <a href="https://www.facebook.com/nehirmehmetyaylali/"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6">
+                    <div class="fs-widget">
+                        <h5>{% trans 'Real Estate' %}</h5>
+                        <ul>
+                            <li><a href="#">{% trans 'Satılık Konut' %}</a></li>
+                            <li><a href="#">{% trans 'Satılık Arsa/Tarla' %}</a></li>
+                            <li><a href="#">{% trans 'Satılık İşyeri' %}</a></li>
+                            <li><a href="#">{% trans 'Satılık Tesisler' %}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6">
+                    <div class="fs-widget">
+                        <h5>{% trans 'Satılık' %}</h5>
+                        <ul>
+                            <li><a href="#">{% trans 'Kiralık Konut' %}</a></li>
+                            <li><a href="#">{% trans 'Kiralık Arsa/Tarla' %}</a></li>
+                            <li><a href="#">{% trans 'Kiralık İşyeri' %}</a></li>
+                            <li><a href="#">{% trans 'Kiralık Tesisler' %}</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="fs-widget">
+                        <h5>{% trans 'Satarsaonlarsatar' %}</h5>
+                        <p>{% trans 'Yeniliklerden Haberdar Ol.' %}</p>
+                        <form action="#" class="subscribe-form">
+                            <input type="text" placeholder="Email">
+                            <button type="submit" class="site-btn">{% trans 'Kayıt' %}</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright-text">
+                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="" target="_blank">İGD</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            </div>
+        </div>
+    </footer>

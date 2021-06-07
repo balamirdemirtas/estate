@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>{% trans 'Arama Sonuçları' %}</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+<section class="search-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="section-title">
+                        <h4>SataronlarSatar.com</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="search-form-content container">
+                <form method="get"  class="filter-form row" action="/filter" style="text-transform: uppercase;">
+                    {% csrf_token %}
+                    <select name="city"  class="sm-width">
+                        {% for c in a %}
+                        <option style="text-transform: uppercase;" value="{{c.name}}">{{c.name}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="position"  class="sm-width">
+                        {% for r in room %}
+                        <option value="{{r.slug}}">{{r.position}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="available" class="sm-width">
+                        <option value="{% trans 'Satılık' %}">{% trans 'Satılık' %}</option>
+                        <option value="{% trans 'Kiralık' %}">{% trans 'Kiralık' %}</option>
+                    </select>
+
+                    <button style="text-align: right;" type="submit" class="text-center search-btn sm-width">{% trans 'Ara' %}</button>
+                </form>
+            </div>
+        </div>
+    </section>
+<section class="property-section latest-property-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="section-title">
+                        <h4>{% trans 'Arama Sonuçlarınız' %}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row property-filter">
+                {% for sale in articles %}
+                <div class="col-lg-4 col-md-6 mix all house">
+                    <div class="property-item">
+                        <div class="pi-pic set-bg" data-setbg="{% if sale.image %}{{ sale.image.url }}{% else %}{% endif %}">
+                            <div class="label">{{sale.category}}</div>
+                        </div>
+                        <div class="pi-text">
+                            <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                            <div class="pt-price">₺ {{sale.price}}</div>
+                            <h5><a href="{{sale.get_absolute_url}}">{{sale.name}}</a></h5>
+                            <p><span class="icon_pin_alt"></span>{{sale.adress}}</p>
+                            <ul>
+                                <li><i class="fa fa-object-group"></i>{{sale.m2}}</li>
+                                <li><i class="fa fa-bathtub"></i> {{sale.shower}}</li>
+                                <li><i class="fa fa-bed"></i> {{sale.room}}</li>
+                                <li><i class="fa fa-automobile"></i> {{sale.garage}}</li>
+                            </ul>
+                            <div class="pi-agent">
+                                <div class="pa-item">
+                                    <div class="pa-info">
+                                        <img src="{% if sale.manager %}{{ sale.manager.url }}{% else %}{% endif %}" alt="">
+                                        <h6>{{sale.managername}}</h6>
+                                    </div>
+                                    <div class="pa-text">
+                                        123-455-688
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+
+{% block jss %}
+{% endblock %}

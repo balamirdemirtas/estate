@@ -1,0 +1,121 @@
+{% load static i18n %}
+ <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Wrapper Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="canvas-close">
+            <span class="icon_close"></span>
+        </div>
+        <div class="logo">
+            <a href="./index.html">
+                <img src="img/logo.png" alt="">
+            </a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="om-widget">
+            <ul>
+                <li><i class="icon_mail_alt"></i> mehmet.yaylali@cb.com.tr</li>
+                <li><i class="fa fa-mobile-phone"></i> +905370308484 <span>+905370308484</span></li>
+                <li>
+                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+								  <input name="next" type="hidden" value="{{ redirect_to }}" />
+									{% get_current_language as LANGUAGE_CODE %}
+									{% get_available_languages as LANGUAGES %}
+									{% get_language_info_list for LANGUAGES as languages %}
+									{% for language in languages %}
+									  <button style=" color:black; padding: 0px 5px; background-color: Transparent;background-repeat:no-repeat;border: none;cursor:pointer;overflow: hidden;" type="submit" name="language" value="{{ language.code }}"
+										class="btn header_button ml-auto {% if language.code == LANGUAGE_CODE %}selected{% endif %}">
+										{{ language.code }}
+									  </button>
+									{% endfor %}
+								</form>
+                </li>
+            </ul>
+            <a href="#" class="hw-btn">{% trans 'İletişim' %}</a>
+        </div>
+        <div class="om-social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-youtube-play"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+        </div>
+    </div>
+    <!-- Offcanvas Menu Wrapper End -->
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="hs-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div style="padding:25px 0; width:250px;">
+                            <a href="/"><img src="{% static 'logoweb2.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="ht-widget">
+                            <ul>
+                                <li><i class="icon_mail_alt"></i> mehmet.yaylali@cb.com.tr</li>
+                                <li><i class="fa fa-mobile-phone"></i> +905370308484 <span>+905339655709</span></li>
+                            </ul>
+                            <a href="#" class="hw-btn">{% trans 'İletişim' %}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas-open">
+                    <span class="icon_menu"></span>
+                </div>
+            </div>
+        </div>
+        <div class="hs-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="nav-menu">
+                            <ul>
+                                <li><a href="#">Satılık</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/real/satilik/">Konut</a></li>
+                                        <li><a href="/land/satilik/">Arsa/Tarla</a></li>
+                                        <li><a href="/work/satilik/">İş Yeri</a></li>
+                                        <li><a href="/tourism/satilik/">Turistik Tesis</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Kiralık</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/real/kiralik/">Konut</a></li>
+                                        <li><a href="/land/kiralik/">Arsa/Tarla</a></li>
+                                        <li><a href="/work/kiralik/">İş Yeri</a></li>
+                                        <li><a href="/tourism/kiralik/">Turistik Tesis</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/real/document/">{% trans 'Sertifikalarımız' %}</a></li>
+                                <li><a href="/real/team/">{% trans 'Ekibimiz' %}</a></li>
+                                <li><a href="/real/about/">{% trans 'Hakkımızda' %}</a></li>
+                                <li><a href="/blog/news">{% trans 'Blog' %}</a></li>
+                                <li><a href="/real/contact/">{% trans 'İletişim' %}</a></li>
+                                <li>
+                                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+								  <input name="next" type="hidden" value="{{ redirect_to }}" />
+									{% get_current_language as LANGUAGE_CODE %}
+									{% get_available_languages as LANGUAGES %}
+									{% get_language_info_list for LANGUAGES as languages %}
+									{% for language in languages %}
+									  <button style=" color:black; padding: 0px 5px 5px; background-color: Transparent;background-repeat:no-repeat;border: none;cursor:pointer;overflow: hidden;" type="submit" name="language" value="{{ language.code }}"
+										class="btn header_button ml-auto {% if language.code == LANGUAGE_CODE %}selected{% endif %}">
+										{{ language.code }}
+									  </button>
+									{% endfor %}
+								</form>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>

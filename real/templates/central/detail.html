@@ -1,0 +1,328 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+{% load embed_video_tags %}
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>Detail</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+<section class="feature-property-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <div class="section-title">
+                        <h4>{{product.name}}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 p-0">
+                    <div class="fp-slider owl-carousel">
+                        {% for solded in images %}
+                        <div class="fp-item set-bg" data-setbg="{% if solded.image %}{{ solded.image.url }}{% else %}{% endif %}">
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="property-details-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="pd-text">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="pd-title">
+                                    <div class="label">{{product.category}}</div>
+                                    <div class="pt-price">{{product.price}} TL<span></span></div>
+                                    <h3>{{product.name}}</h3>
+                                    <p><span class="icon_pin_alt"></span> {{product.adress}}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="pd-social">
+                                    <a href="#"><i class="fa fa-mail-forward"></i></a>
+                                    <a href="#"><i class="fa fa-send"></i></a>
+                                    <a href="#"><i class="fa fa-heart"></i></a>
+                                    <a href="#"><i class="fa fa-mail-forward"></i></a>
+                                    <a href="#"><i class="fa fa-cloud-download"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pd-board">
+                            <div class="tab-board">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">{% trans 'Özellikler' %}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">{% trans 'Açıklama' %}</a>
+                                    </li>
+                                </ul><!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                        <div class="tab-details">
+                                            <ul class="left-table">
+                                                <li>
+                                                    <span class="type-name">{% trans 'Kategori' %}</span>
+                                                    <span class="type-value">{{product.category}}</span>
+                                                </li>
+                                                <li>
+                                                    <span class="type-name">ID</span>
+                                                    <span class="type-value">#357463{{product.id}}</span>
+                                                </li>
+                                                <li>
+                                                    <span class="type-name">{% trans 'Fiyat' %}</span>
+                                                    <span class="type-value">{{product.price}}</span>
+                                                </li>
+                                                <li>
+                                                    <span class="type-name">{% trans 'Üretim Tarihi' %}</span>
+                                                    <span class="type-value">{{product.yearofproduction}}</span>
+                                                </li>
+                                                <li>
+                                                    <span class="type-name">{% trans 'Türü' %}</span>
+                                                    <span class="type-value">{{product.category}}</span>
+                                                </li>
+                                                <li>
+                                                    <span class="type-name">{% trans 'Yönetici' %}</span>
+                                                    <span class="type-value">{{product.managername}}</span>
+                                                </li>
+                                            </ul>
+                                            <ul class="right-table">
+                                                <li>
+                                                    <span class="type-name">{% trans 'M2' %}</span>
+                                                    <span class="type-value">{{product.m2}} m2</span>
+                                                </li>
+                                                <li>
+                                                    <span class="type-name">{% trans 'Rooms' %}</span>
+                                                    <span class="type-value">{{product.room}}</span>
+                                                </li>
+                                                <li>
+                                                    <span class="type-name">{% trans 'Yatak Odası' %}</span>
+                                                    <span class="type-value">{{product.bedroom}}</span>
+                                                </li>
+                                                <li>
+                                                    <span class="type-name">{% trans 'Duş-Wc' %}</span>
+                                                    <span class="type-value">{{product.shower}}</span>
+                                                </li>
+                                                <li>
+                                                    <span class="type-name">{% trans 'Garaj' %}</span>
+                                                    <span class="type-value">{{product.garage}}</span>
+                                                </li>
+                                                <li>
+                                                    <span class="type-name">{% trans 'Parking lots' %}</span>
+                                                    <span class="type-value">2</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                        <div class="tab-desc">
+                                            <p>{{product.info | safe}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pd-widget">
+                            <h4>{% trans 'Plan' %}</h4>
+                            <img src="{% if product.plans %}{{ product.plans.url }}{% else %}{% endif %}" alt="">
+                        </div>
+                        <div class="pd-widget">
+                            <h4>{% trans 'Lokasyon' %}</h4>
+                            <div class="map">
+                                <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=350&amp;hl=en&amp;q={{product.adress}}+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <div class="map-location">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="ml-item">
+                                            <div class="ml-single-item">
+                                                <h6>Hastane <span>( <i class="fa fa-location-arrow"></i> {{product.hospital}} km )</span></h6>
+                                                <p>İlçe Hastanesi</p>
+                                            </div>
+                                            <div class="ml-single-item">
+                                                <h6>Okul <span>( <i class="fa fa-location-arrow"></i> {{product.scholl}} km )</span></h6>
+                                                <p>Devlet Okulu</p>
+                                            </div>
+                                            <div class="ml-single-item">
+                                                <h6>Market <span>( <i class="fa fa-location-arrow"></i> {{product.market}} km )</span></h6>
+                                                <p>Yerleşik Marketler</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="ml-item">
+                                            <div class="ml-single-item">
+                                                <h6>Merkez <span>( <i class="fa fa-location-arrow"></i> {{product.center}} km )</span></h6>
+                                                <p>İl/ilçe Merkezi</p>
+                                            </div>
+                                            <div class="ml-single-item">
+                                                <h6>Deniz <span>( <i class="fa fa-location-arrow"></i> {{product.sea}} km )</span></h6>
+                                                <p>İl/İlçe Denizi</p>
+                                            </div>
+                                            <div class="ml-single-item">
+                                                <h6>Ana Yol <span>( <i class="fa fa-location-arrow"></i> {{product.highway}} km )</span></h6>
+                                                <p>Şehirler Arası Yol</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pd-widget">
+                            <h4>{% trans 'Bu ilan İçin Bizimle İletişime Geçmek istemisiniz ?' %}</h4>
+                            <form action="#" class="review-form">
+                                <div class="group-input">
+                                    <input type="text" placeholder="{% trans 'İsim' %}">
+                                    <input type="text" placeholder="{% trans 'Email' %}">
+                                    <input type="text" placeholder="{% trans 'Konu' %}">
+                                </div>
+                                <textarea placeholder="{% trans 'Mesaj' %}"></textarea>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <button type="submit" class="site-btn">{% trans 'Mesaj' %}</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="property-sidebar">
+                        <div class="single-sidebar">
+                            <div class="section-title sidebar-title">
+                                <h5>{% trans 'Değerlerimiz' %}</h5>
+                            </div>
+                            <div class="top-agent">
+                                {% for x in agent %}
+                                <div class="ta-item">
+                                    <div class="ta-pic set-bg" data-setbg="{% if x.image %}{{ x.image.url }}{% else %}{% endif %}"></div>
+                                    <div class="ta-text">
+                                        <h6><a href="#">{{x.name}}</a></h6>
+                                        <span>Team Leader</span>
+                                        <div class="ta-num">{{x.telephone}}</div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+ <section class="about-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about-text">
+                        <div class="at-title">
+                            <h3>{{product.name}}</h3>
+                            <br>
+                        </div>
+                        <div class="at-feature">
+                            <div class="af-item">
+                                <div class="af-icon">
+                                    <img src="{% static 'img/chooseus/chooseus-icon-1.png' %}" alt="">
+                                </div>
+                                <div class="af-text">
+                                    <h6>{% trans 'Find your future home' %}</h6>
+                                    <p>{% trans 'We help you find a new home by offering a smart real estate.' %}</p>
+                                </div>
+                            </div>
+                            <div class="af-item">
+                                <div class="af-icon">
+                                    <img src="{% static 'img/chooseus/chooseus-icon-2.png' %}" alt="">
+                                </div>
+                                <div class="af-text">
+                                    <h6>{% trans 'Experienced agents' %}</h6>
+                                    <p>{% trans 'Find an agent who knows your market best' %}</p>
+                                </div>
+                            </div>
+                            <div class="af-item">
+                                <div class="af-icon">
+                                    <img src="{% static 'img/chooseus/chooseus-icon-3.png' %}" alt="">
+                                </div>
+                                <div class="af-text">
+                                    <h6>{% trans 'Buy or rent homes' %}</h6>
+                                    <p>{% trans 'Millions of houses and apartments in your favourite cities' %}</p>
+                                </div>
+                            </div>
+                            <div class="af-item">
+                                <div class="af-icon">
+                                    <img src="{% static 'img/chooseus/chooseus-icon-4.png' %}" alt="">
+                                </div>
+                                <div class="af-text">
+                                    <h6>{% trans 'List your own property' %}</h6>
+                                    <p>{% trans 'Sign up now and sell or rent your own properties' %}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-pic set-bg">
+                        {% video product.video '100% x 100%' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+{% endblock %}
+
+
+{% block jss %}
+{% endblock %}

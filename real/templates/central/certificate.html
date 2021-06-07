@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'a/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'a/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'a/css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'a/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'a/css/owl.theme.default.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'a/css/lightgallery.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'a/css/bootstrap-datepicker.css' %}">
+
+    <link rel="stylesheet" href="{% static 'a/fonts/flaticon/font/flaticon.css' %}">
+
+    <link rel="stylesheet" href="{% static 'a/css/swiper.css' %}">
+
+    <link rel="stylesheet" href="{% static 'a/css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'a/css/style.css' %}">
+{% endblock %}
+{% block seo %}
+
+
+<title>Club Turban Galeri</title>
+
+<meta name="description" content="/" />
+
+<meta name="keywords" content="/" />
+
+<link rel="canonical" href="/"/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+<div class="site-section"  data-aos="fade">
+    <div class="container-fluid">
+
+      <div class="row justify-content-center">
+
+        <div class="col-md-7">
+          <div class="row mb-5">
+            <div class="col-12 ">
+              <h2 class="site-section-heading text-center" style="font-size:50px;">{% trans 'Ödüllerimiz Ve Sertifikalarımız' %}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" id="lightgallery">
+        {% for y in story %}
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 item" data-aos="fade" data-src="{% if y.image %}{{ y.image.url }}{% else %}{% endif %}" data-sub-html="<h4 style='color: white;'>Satarsaonlarsatar.com</h4><p style='color: white;'>{{y.name}}</p>">
+          <a href="#"><img src="{% if y.image %}{{ y.image.url }}{% else %}{% endif %}" alt="IMage" class="img-fluid"></a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+{% endblock %}
+
+{% block jss %}
+  <script src="{% static 'a/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'a/js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'a/js/jquery-ui.js' %}"></script>
+  <script src="{% static 'a/js/popper.min.js' %}"></script>
+  <script src="{% static 'a/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'a/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'a/js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'a/js/jquery.countdown.min.js' %}"></script>
+  <script src="{% static 'a/js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'a/js/bootstrap-datepicker.min.js' %}"></script>
+  <script src="{% static 'a/js/swiper.min.js' %}"></script>
+  <script src="{% static 'a/js/aos.js' %}"></script>
+
+  <script src="{% static 'a/js/picturefill.min.js' %}"></script>
+  <script src="{% static 'a/js/lightgallery-all.min.js' %}"></script>
+  <script src="{% static 'a/js/jquery.mousewheel.min.js' %}"></script>
+
+  <script src="{% static 'a/js/main.js' %}"></script>
+
+  <script>
+    $(document).ready(function(){
+      $('#lightgallery').lightGallery();
+    });
+  </script>
+{% endblock %}
